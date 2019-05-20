@@ -2,6 +2,7 @@ __auther__ = 'Xinyu Wang'
 
 import numpy as np
 from sklearn.svm import SVR
+from sklearn.svm import LinearSVC
 import matplotlib.pyplot as plt
 from sklearn.model_selection import cross_validate, cross_val_score
 from sklearn.model_selection import train_test_split
@@ -31,6 +32,15 @@ def run_svm_cv(X,y,cv=5,kernel='linear',C=1,degree=1,tol=0.001,gamma='scale',coe
         return clf.coef_
     else:
         return clf.dual_coef_
+
+
+def run_lsvm_cv(X,y,cv=5,C=1,penalty='l1',loss='squared_hinge',tol=0.001,verbose=True,dual=True,max_iter=1000):
+    clf = LinearSVC(C=C,penalty=penalty,loss=loss,tol=tol,verbose=verbose,dual=dual,max_iter=max_iter)
+    scores = cross_val_score(clf, X, y, cv=cv)
+    print(scores)
+    print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+    clf.fit(X,y)
+    return clf.coef_
 
 kernels = ['linear','rbf','poly','precomputed','sigmoid']
 

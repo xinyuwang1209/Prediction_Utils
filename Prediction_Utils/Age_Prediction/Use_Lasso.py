@@ -5,7 +5,7 @@ import sklearn.model_selection.train_test_split
 from sklearn.model_selection import cross_val_score
 
 def run_lasso_cv(X,y,cv=5,random_state=0,C=1,degree=1,tol=0.001):
-    clf = svm.SVC(kernel='linear', C=C,degree=degree,tol=tol)
+    clf = svm.Lasso(kernel='linear', C=C,degree=degree,tol=tol)
     scores = cross_val_score(clf, X, y, cv=cv)
     print(scores)
     print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
