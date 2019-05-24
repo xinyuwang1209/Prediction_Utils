@@ -1,7 +1,7 @@
 __auther__ = 'Xinyu Wang'
 
 from sklearn.ensemble import RandomForestRegressor
-import sklearn.model_selection.train_test_split
+from sklearn.model_selection import train_test_split
 
 def run_rf(X,y,cv=5,random_state=0,return_format='np'):
     regr = RandomForestRegressor(max_depth=2, random_state=0,

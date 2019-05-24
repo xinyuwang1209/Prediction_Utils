@@ -2,6 +2,7 @@ __auther__ = 'Xinyu Wang'
 
 import numpy as np
 from sklearn.svm import SVR
+from sklearn.svm import SVC
 from sklearn.svm import LinearSVC
 import matplotlib.pyplot as plt
 from sklearn.model_selection import cross_validate, cross_val_score
@@ -23,7 +24,7 @@ def run_CrossValidation(X,y,cv=5,return_format='np'):
 # sigmoid               gamma   coef0
 
 def run_svm_cv(X,y,cv=5,kernel='linear',C=1,degree=1,tol=0.001,gamma='scale',coef0=1):
-    clf = svm.SVC(kernel=kernel, C=C,degree=degree,tol=tol,gamma=gamma,coef0=coef0)
+    clf = SVC(kernel=kernel, C=C,degree=degree,tol=tol,gamma=gamma,coef0=coef0)
     scores = cross_val_score(clf, X, y, cv=cv)
     print(scores)
     print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
