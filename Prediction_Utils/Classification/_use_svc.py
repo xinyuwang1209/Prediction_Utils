@@ -10,11 +10,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
 def run_CrossValidation(X,y,cv=5,return_format='np'):
     # Memo
-    clf = svm.SVC(kernel='linear', C=1)
-    clf = svm.SVC(kernel='rbf', C=1)
-    clf = svm.SVC(kernel='poly’', C=1)
-    clf = svm.SVC(kernel='precomputed', C=1)
-    clf = svm.SVC(kernel='sigmoid', C=1)
+    clf = SVC(kernel='linear', C=1)
+    clf = SVC(kernel='rbf', C=1)
+    clf = SVC(kernel='poly’', C=1)
+    clf = SVC(kernel='precomputed', C=1)
+    clf = SVC(kernel='sigmoid', C=1)
     # scores = cross_validate(clf, X, y, cv=cv)
 
 # linear
